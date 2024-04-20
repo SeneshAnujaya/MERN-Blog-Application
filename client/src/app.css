@@ -95,7 +95,10 @@ button {
     border-radius: 5px;
     padding: 10px 0;
 }
-form h1 {
+button:hover {
+    cursor: pointer;
+}
+form.login h1, form.register h1 {
     text-align: center;
 }
 
