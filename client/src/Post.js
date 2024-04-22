@@ -1,26 +1,27 @@
-import thumbnail from "./img/mindfulness.jpg";
+import {Link} from 'react-router-dom';
+import {formatISO9075} from "date-fns";
 
-export default function Post() {
+export default function Post({_id, title, summary, cover, createdAt, author}) {
     return(
         <div className="post">
         <div className="image">
-          <img src={thumbnail} alt="post thumbnail" />
+          <Link to={`/post/${_id}`}>
+          <img src={'http://localhost:4000/'+cover} alt="post thumbnail" />
+          </Link>
         </div>
   
         <div className="texts">
+          <Link to={`/post/${_id}`}>
           <h2>
-            The Power of Mindfulness: How Practicing Mindfulness Can Transform
-            Your Life
+            {title}
           </h2>
+          </Link>
           <p className="info">
-            <a className="author">Senesh Anujaya</a>
-            <time>2024-04-01 2.38</time>
+            <a className="author">{author.username}</a>
+            <time>{formatISO9075(new Date(createdAt))}</time>
           </p>
           <p className="summary">
-            In today's fast-paced world, it's easy to get caught up in the chaos
-            of everyday life, leaving us feeling stressed, overwhelmed, and
-            disconnected. However, amidst the hustle and bustle, there lies a
-            powerful tool that can help us find peace and clarity: mindfulness.
+            {summary}
           </p>
         </div>
       </div>
